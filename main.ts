@@ -16,6 +16,16 @@ function getLineEquation (x1: number, y1: number, x2: number, y2: number) {
         tempY = m * tempX + c
         led.plot(tempX, tempY)
     }
+    tempY = y1
+    while (tempY != y2) {
+        if (tempY < y2) {
+            tempY += 1
+        } else if (tempY > y2) {
+            tempY += -1
+        }
+        tempX = (tempY - c) / m
+        led.plot(tempX, tempY)
+    }
 }
 input.onButtonPressed(Button.A, function () {
     basic.clearScreen()
